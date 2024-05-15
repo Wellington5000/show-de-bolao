@@ -1,1 +1,41 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+:root {
+    --primary-color: #2ECC71;
+}
+
+body {
+    background-color: #052535;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.primary {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #ffffff;
+    padding: 0.875rem 7.5rem;
+    background-color: var(--primary-color);
+}
+
+.tertiary {
+    color: #ffffff;
+    background-color: transparent;
+}

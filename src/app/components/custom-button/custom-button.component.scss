@@ -1,0 +1,24 @@
+button {
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #ffffff;
+    border-radius: 0.25rem;
+    padding: 7px 3.5rem;
+    background-color: var(--primary-color);
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+img {
+    position: absolute;
+    margin-left: -12px;
+    margin-top: -2px;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
