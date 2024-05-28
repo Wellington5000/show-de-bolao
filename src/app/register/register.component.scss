@@ -1,0 +1,94 @@
+.r-container {
+    display: flex;
+
+    .r-logo {
+        position: absolute;
+        margin: 2rem 3rem;
+        width: 90px;
+    }
+
+    .r-image-container {
+        overflow: hidden;
+
+        img {
+            height: 99vh;
+        }
+    }
+
+    .r-form-container {
+        width: 45%;
+        min-width: 35.125rem;
+        display: flex;
+        justify-content: center;
+    }
+
+    .r-form {
+        gap: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        .r-form-fields {
+            gap: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .input-container {
+            label {
+                font-size: 1rem;
+                font-weight: 100;
+                color: white;
+                line-height: 24px;
+            }
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: white;
+            align-self: flex-start;
+        }
+
+        .ic-icon {
+            position: absolute;
+            width: 44px;
+            height: 44px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #D8DCDF;
+        }
+        
+
+        input {
+            width: 20rem;
+            height: 2.75rem;
+            outline: none;
+            font-size: 1rem;
+            padding-left: 54px;
+            padding-right: 8px;
+            border-radius: 2px;
+            border: 1px solid #D8DCDF;
+        }
+    }
+
+    .r-form-footer {
+        line-height: 20px;
+        font-size: 0.75rem;
+        font-weight: 500;
+        color: white;
+
+        a {
+            color: #3498DB;
+        }
+    }
+    
+}
+
+:host ::ng-deep app-button button {
+    margin-top: 14px;
+    width: 100%;
+
+}

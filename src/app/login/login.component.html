@@ -1,0 +1,34 @@
+<div class="r-container">
+    <a routerLink=""><img class="r-logo" src="/assets/images/logo-show-de-bolao.svg" alt="Logo"></a>
+    <div class="r-image-container">
+        <img src="/assets/images/jogador-cabeceando.png" alt="Jogador de costas">
+    </div>
+    <div class="r-form-container">
+       <div class="r-form">
+            <h3 class="r-form-title">Bem vindo ao Show de Bolão</h3>
+            <div class="r-form-fields">
+                <div class="input-container">
+                    <label for="name">E-mail ou apelido</label>
+                    <div class="input-content">
+                        <div class="ic-icon">
+                            <img src="/assets/icons/email.svg" alt="Ícone de email">
+                        </div>
+                        <input type="text" name="name">
+                    </div>
+                </div>
+                <div class="input-container">
+                    <label for="password">Senha</label>
+                    <div class="input-content">
+                        <div class="ic-icon">
+                            <img src="/assets/icons/password.svg" alt="Ícone de senha">
+                        </div>
+                        <input type="text" name="password">
+                    </div>
+                </div>
+                <a routerLink="#" class="l-recover-password">esqueceu a senha?</a>
+                <app-button [text]="'Entrar'"></app-button>
+            </div>
+            <span class="r-form-footer">Ainda não tem uma conta? <a routerLink="/register">Cadastre aqui</a></span>
+       </div>
+    </div>
+</div>

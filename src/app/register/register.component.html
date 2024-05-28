@@ -1,0 +1,69 @@
+<div class="r-container">
+    <a routerLink=""><img class="r-logo" src="/assets/images/logo-show-de-bolao.svg" alt="Logo"></a>
+    <div class="r-image-container">
+        <img src="/assets/images/jogador-de-costas-2.svg" alt="Jogador de costas">
+    </div>
+    <div class="r-form-container">
+       <div class="r-form">
+            <h3 class="r-form-title">Bem vindo ao Show de Bolão</h3>
+            <div class="r-form-fields">
+                <div class="input-container">
+                    <label for="name">Nome</label>
+                    <div class="input-content">
+                        <div class="ic-icon">
+                            <img src="/assets/icons/person.svg" alt="Ícone de pessoa">
+                        </div>
+                        <input type="text" name="name">
+                    </div>
+                </div>
+                <div class="input-container">
+                    <label for="surname">Apelido</label>
+                    <div class="input-content">
+                        <div class="ic-icon">
+                            <img src="/assets/icons/person.svg" alt="Ícone de pessoa">
+                        </div>
+                        <input type="text" name="surname">
+                    </div>
+                </div>
+                <div class="input-container">
+                    <label for="phone">Telefone</label>
+                    <div class="input-content">
+                        <div class="ic-icon">
+                            <img src="/assets/icons/phone.svg" alt="Ícone de telefone">
+                        </div>
+                        <input type="text" name="phone">
+                    </div>
+                </div>
+                <div class="input-container">
+                    <label for="email">E-mail</label>
+                    <div class="input-content">
+                        <div class="ic-icon">
+                            <img src="/assets/icons/email.svg" alt="Ícone de email">
+                        </div>
+                        <input type="text" name="email">
+                    </div>
+                </div>
+                <div class="input-container">
+                    <label for="password">Senha</label>
+                    <div class="input-content">
+                        <div class="ic-icon">
+                            <img src="/assets/icons/password.svg" alt="Ícone de senha">
+                        </div>
+                        <input type="password" name="password">
+                    </div>
+                </div>
+                <div class="input-container">
+                    <label for="confirm-password">Confirmar senha</label>
+                    <div class="input-content">
+                        <div class="ic-icon">
+                            <img src="/assets/icons/password.svg" alt="Ícone de senha">
+                        </div>
+                        <input type="password" name="confirm-password">
+                    </div>
+                </div>
+                <app-button [text]="'Cadastrar'"></app-button>
+            </div>
+            <span class="r-form-footer">Já tem uma contra? <a routerLink="/login">Entrar</a></span>
+       </div>
+    </div>
+</div>
