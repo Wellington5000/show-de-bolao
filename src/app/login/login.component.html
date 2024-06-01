@@ -22,10 +22,10 @@
                         <div class="ic-icon">
                             <img src="/assets/icons/password.svg" alt="Ícone de senha">
                         </div>
-                        <input type="text" name="password">
+                        <input type="text" name="password" [maxLength]="150">
                     </div>
                 </div>
-                <a routerLink="#" class="l-recover-password">esqueceu a senha?</a>
+                <a routerLink="/recover-password" class="l-recover-password">esqueceu a senha?</a>
                 <app-button [text]="'Entrar'"></app-button>
             </div>
             <span class="r-form-footer">Ainda não tem uma conta? <a routerLink="/register">Cadastre aqui</a></span>

@@ -13,7 +13,7 @@
                         <div class="ic-icon">
                             <img src="/assets/icons/person.svg" alt="Ícone de pessoa">
                         </div>
-                        <input type="text" name="name">
+                        <input type="text" name="name" [maxLength]="150">
                     </div>
                 </div>
                 <div class="input-container">
@@ -22,7 +22,7 @@
                         <div class="ic-icon">
                             <img src="/assets/icons/person.svg" alt="Ícone de pessoa">
                         </div>
-                        <input type="text" name="surname">
+                        <input type="text" name="surname" [maxLength]="100">
                     </div>
                 </div>
                 <div class="input-container">
@@ -31,7 +31,7 @@
                         <div class="ic-icon">
                             <img src="/assets/icons/phone.svg" alt="Ícone de telefone">
                         </div>
-                        <input type="text" name="phone">
+                        <input type="text" name="phone" mask="(00) 0 0000 0000">
                     </div>
                 </div>
                 <div class="input-container">
@@ -40,7 +40,7 @@
                         <div class="ic-icon">
                             <img src="/assets/icons/email.svg" alt="Ícone de email">
                         </div>
-                        <input type="text" name="email">
+                        <input type="text" name="email" [maxLength]="150">
                     </div>
                 </div>
                 <div class="input-container">
@@ -49,7 +49,7 @@
                         <div class="ic-icon">
                             <img src="/assets/icons/password.svg" alt="Ícone de senha">
                         </div>
-                        <input type="password" name="password">
+                        <input type="password" name="password" [maxLength]="150">
                     </div>
                 </div>
                 <div class="input-container">
@@ -58,7 +58,7 @@
                         <div class="ic-icon">
                             <img src="/assets/icons/password.svg" alt="Ícone de senha">
                         </div>
-                        <input type="password" name="confirm-password">
+                        <input type="password" name="confirm-password" [maxLength]="150">
                     </div>
                 </div>
                 <app-button [text]="'Cadastrar'"></app-button>

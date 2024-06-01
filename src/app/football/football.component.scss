@@ -1,0 +1,211 @@
+.f-container {
+    padding: 0 8.75rem 0 10rem;
+
+    .f-section-1 {
+        margin-top: 60px;
+        display: flex;
+        justify-content: space-between;
+
+        .f-profile {
+            gap: 18px;
+            display: flex;
+            align-items: center;
+
+            .f-profile-name {
+                font-size: 1.5rem;
+                font-weight: 600;
+                color: white;
+            }
+
+            .f-profile-link {
+                font-size: 1rem;
+                font-weight: 600;
+                color: #34A853;
+            }
+        }
+
+        .f-info {
+            display: flex;
+            gap: 1rem;
+
+            .f-info-item {
+                gap: 6px;
+                display: flex;
+                flex-direction: column;
+
+                .f-item-title {
+                    font-size: 1.25rem;
+                    font-weight: 700;
+                    color: white;
+                }
+
+                .f-item-box {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    min-width: 240px;
+                    height: 90px;
+                    background-color: #07131F;
+                    border-radius: 0.5rem;
+                    padding-left: 0.5rem;
+                    padding-right: 0.75rem;
+
+                    .f-box-text {
+                        font-size: 2rem;
+                        font-weight: 500;
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+
+    .f-section-2 {
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+
+        .fs2-box {
+            padding: 1.5rem 3.75rem 1.5rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            background-color: #09061199;
+            border-radius: 0.5rem;
+
+            .fs2-box-title {
+                font-weight: 600;
+                font-size: 1.25rem;
+                color: white;
+            }
+
+            .fs2-box-text {
+                max-width: 1003px;
+                font-weight: 300;
+                font-size: 1rem;
+                color: white;
+            }
+            
+        }
+    }
+
+    .f-section-3 {
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+
+        .fs3-container {
+            width: 1086px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.75rem;
+
+            .fs3-title {
+                align-self: flex-start;
+                font-size: 1.25rem;
+                font-weight: 600;
+                color: white;
+            }
+
+            .fs3-games-table {
+                padding: 1.5rem 3.75rem 1.25rem 1.5rem;
+                display: flex;
+                flex-direction: column;
+                background-color: white;
+                border-radius: 0.5rem;
+                gap: 10px;
+
+                .fs3-table-item {
+                    width: 1003px;
+
+                    .fs3-item-text {
+                        color: #052535;
+                        font-size: 1rem;
+                        font-weight: 600;
+                        margin-bottom: -5px;
+                    }
+
+                    .fs3-item-info {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+
+                        .fs3-info-date {
+                            font-size: 1.125rem;
+                            color: white;
+                            font-weight: 600;
+                            text-transform: uppercase;
+                            background-color: #4C556C;
+                            border-radius: 2px;
+                            padding: 2px 4px;
+                        }
+
+                        .fs3-info-tournament {
+                            color: #052535;
+                            font-size: 1rem;
+                            font-weight: 600;
+                        }
+
+                        .fs3-info-teams {
+                            width: 50%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+
+                            .fs3-team {
+                                gap: 0.5rem;
+                                display: flex;
+                                align-items: center;
+
+                                .fs3-team-name {
+                                    color: #052535;
+                                    font-size: 1rem;
+                                    font-weight: 600;
+                                }
+
+                                .fs3-team-separator {
+                                    color: #052535;
+                                    font-size: 1rem;
+                                    font-weight: 600;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .f-section-4 {
+        margin-top: 107px;
+
+        .fs4-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .fs4-title {
+                font-size: 40px;
+                font-weight: 700;
+                line-height: 66px;
+                letter-spacing: -1.92;
+                color: #34A853;
+            }
+
+            .fs4-text {
+                font-size: 20px;
+                font-weight: 700;
+                color: white;
+                line-height: 66px;
+            }
+        }
+    }
+}
+
+:host ::ng-deep .f-section-4 app-button {
+    button {
+        background-color: #27AE60;
+        padding: 0.5rem 57px;
+    }
+}

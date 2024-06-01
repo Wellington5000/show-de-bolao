@@ -1,5 +1,6 @@
 .r-container {
     display: flex;
+    max-height: 100vh;
 
     .r-logo {
         position: absolute;
@@ -11,7 +12,7 @@
         overflow: hidden;
 
         img {
-            height: 99vh;
+            height: 100vh;
         }
     }
 

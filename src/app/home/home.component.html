@@ -10,7 +10,7 @@
     </div>
     <div class="h-actions">
         <a routerLink="register"><app-button [variant]="'tertiary'" [text]="'Cadastrar'"></app-button></a>
-        <a routerLink="login"><app-custom-button></app-custom-button></a>
+        <a routerLink="login"><app-custom-button [text]="'Entrar'"></app-custom-button></a>
     </div>
 </header>
 <section class="h-section-1">
@@ -18,7 +18,7 @@
     <div class="hs1-box">
         <p>Junte-se ao bolão e seja campeão!</p>
     </div>
-    <button class="primary">Participar</button>
+    <a routerLink="/football"><button class="primary">Participar</button></a>
 </section>
 <section class="h-section-2">
     <div class="hs2-box">
@@ -58,31 +58,4 @@
         <img src="/assets/images/step-3.svg" alt="Imagem do terceiro passo">
     </div>
 </section>
-<footer>
-    <div class="hf1-box">
-        <a href="#"><img src="/assets/images/logo-show-de-bolao-2.svg" alt="Logo show de bolão"></a>
-        <div class="hf1-info">
-            <p>
-                O Show de Bolão é um site de entretenimento, com intuito de oferecer
-                diversão e prêmios aos seus usuários, por meio de apostas esportivas do
-                futebol nacional e internacional. Agora você pode fazer parte desta
-                comunidade e mostrar todo o seu conhecimento nesse esporte, de uma
-                forma diferente.
-            </p>
-            <div class="hf1-social">
-                <img src="/assets/images/logo-instagram.svg" alt="Logo do instagram">
-                <img src="/assets/images/logo-facebook.svg" alt="Logo do facebook">
-            </div>
-        </div>
-        <div class="hf1-links">
-            <h3>Navegação</h3>
-            <a href="#">Fale conosco</a>
-            <a href="#">Regulamento</a>
-            <a href="#">Termos de uso</a>
-            <a href="#">Politica de Privacidade</a>
-        </div>
-    </div>
-    <div class="hf2-box">
-        <p>© 2024 Show de Bolão. Todos os diretos reservados.</p>
-    </div>
-</footer>
+<app-footer></app-footer>

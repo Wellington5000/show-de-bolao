@@ -1,0 +1,75 @@
+<app-header></app-header>
+<div class="f-container">
+    <section class="f-section-1">
+        <div class="f-profile">
+            <img src="/assets/images/profile.png" alt="Foto do perfil">
+            <div class="f-profile-info">
+                <p class="f-profile-name">Adalberto</p>
+                <a href="#" class="f-profile-link">Ver meu perfil</a>
+            </div>
+        </div>
+        <div class="f-info">
+            <div class="f-info-item">
+                <p class="f-item-title">Pontos</p>
+                <div class="f-item-box">
+                    <img src="/assets/icons/header/medium-winner.svg" alt="Taça média">
+                    <p class="f-box-text">0</p>
+                </div>
+            </div>
+            <div class="f-info-item">
+                <p class="f-item-title">Saldo</p>
+                <div class="f-item-box">
+                    <img src="/assets/icons/header/medium-money.svg" alt="Moeda média">
+                    <p class="f-box-text">{{ 0 | currency: 'BRL' }}</p>
+                </div>
+            </div>
+            <div class="f-info-item">
+                <p class="f-item-title">Cashback</p>
+                <div class="f-item-box">
+                    <img src="/assets/icons/header/medium-ticket.svg" alt="Ticket médio">
+                    <p class="f-box-text">{{ 0 | currency: 'BRL' }}</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="f-section-2">
+        <div class="fs2-box">
+            <p class="fs2-box-title">Jogos da rodada</p>
+            <p class="fs2-box-text">Placar com os resultados dos jogos da rodada atualizados online. Acompanhe o nosso super placar de futebol que acontecem pelos campeonatos do Brasil e do mundo.</p>
+        </div>
+    </section>
+    <section class="f-section-3">
+       <div class="fs3-container">
+            <p class="fs3-title">1° Rodada</p>
+            <div class="fs3-games-table">
+                <div class="fs3-table-item" *ngFor="let item of items; let i = index">
+                    <p class="fs3-item-text">Jogo {{ i + 1 }}</p>
+                    <div class="fs3-item-info">
+                        <span class="fs3-info-date">Amanhã 19:00</span>
+                        <span class="fs3-info-tournament">Copa Libertadores</span>
+                        <div class="fs3-info-teams">
+                            <div class="fs3-team">
+                                <img class="fs3-team-shield" src="/assets/images/team-1.png" alt="Escudo do time 1">
+                                <span class="fs3-team-name">River Plate</span>
+                            </div>
+                            <span class="fs3-team-separator">x</span>
+                            <div class="fs3-team">
+                                <span class="fs3-team-name">River Plate</span>
+                                <img class="fs3-team-shield" src="/assets/images/team-2.png" alt="Escudo do time 1">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+       </div>
+    </section>
+    <section class="f-section-4">
+        <div class="fs4-container">
+            <h2 class="fs4-title">Melhores Jogadores do Ranking Global</h2>
+            <img src="/assets/images/best-team.png" alt="Melhor time">
+            <p class="fs4-text">Após finalizar a 1° rodada teremos o resultado do Ranking global</p>
+            <app-button [text]="'Participar'"></app-button>
+        </div>
+    </section>
+</div>
+<app-footer></app-footer>
