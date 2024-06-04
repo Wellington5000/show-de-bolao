@@ -17,5 +17,16 @@ import { FooterComponent } from "../components/footer/footer.component";
     ]
 })
 export class FootballComponent {
-  items = Array(8).fill(0);
+  roundStatus: string = 'in-progress';
+
+  items = Array(8).fill({
+    game: {
+      tournament: 'Copa Libertadores',
+      first_team: 'River Plate',
+      second_team: 'Flamengo',
+      date: '12-05-2024',
+      first_team_score: 0,
+      second_team_score: 1
+    }
+  });
 }

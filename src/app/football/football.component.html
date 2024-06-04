@@ -46,15 +46,19 @@
                     <p class="fs3-item-text">Jogo {{ i + 1 }}</p>
                     <div class="fs3-item-info">
                         <span class="fs3-info-date">Amanhã 19:00</span>
-                        <span class="fs3-info-tournament">Copa Libertadores</span>
+                        <span class="fs3-info-tournament">{{ item.game.tournament }}</span>
                         <div class="fs3-info-teams">
                             <div class="fs3-team">
                                 <img class="fs3-team-shield" src="/assets/images/team-1.png" alt="Escudo do time 1">
-                                <span class="fs3-team-name">River Plate</span>
+                                <span class="fs3-team-name" [class.fs3-win]="(item.game.first_team_score >= item.game.second_team_score) && ['in-progress', 'finished'].includes(roundStatus)">{{ item.game.first_team }}</span>
                             </div>
-                            <span class="fs3-team-separator">x</span>
+                            <div class="fs3-team-scoreboard">
+                                <span class="fs3-team-item" *ngIf="['in-progress', 'finished'].includes(roundStatus)">{{ item.game.first_team_score }}</span>
+                                <span class="fs3-team-item">x</span>
+                                <span class="fs3-team-item" *ngIf="['in-progress', 'finished'].includes(roundStatus)">{{ item.game.second_team_score }}</span>
+                            </div>
                             <div class="fs3-team">
-                                <span class="fs3-team-name">River Plate</span>
+                                <span class="fs3-team-name" [class.fs3-win]="(item.game.first_team_score <= item.game.second_team_score) && ['in-progress', 'finished'].includes(roundStatus)">{{ item.game.second_team }}</span>
                                 <img class="fs3-team-shield" src="/assets/images/team-2.png" alt="Escudo do time 1">
                             </div>
                         </div>
@@ -65,10 +69,60 @@
     </section>
     <section class="f-section-4">
         <div class="fs4-container">
-            <h2 class="fs4-title">Melhores Jogadores do Ranking Global</h2>
-            <img src="/assets/images/best-team.png" alt="Melhor time">
-            <p class="fs4-text">Após finalizar a 1° rodada teremos o resultado do Ranking global</p>
-            <app-button [text]="'Participar'"></app-button>
+           <ng-container *ngIf="['new-round'].includes(roundStatus)">
+                <h2 class="fs4-title">Melhores Jogadores do Ranking Global</h2>
+                <img src="/assets/images/best-team.png" alt="Melhor time">
+                <p class="fs4-text">Após finalizar a 1° rodada teremos o resultado do Ranking global</p>
+                <app-button [text]="'Participar'"></app-button>
+           </ng-container>
+           <ng-container *ngIf="['in-progress'].includes(roundStatus)">
+                <h2 class="fs4-title">Ranking da 1° Rodada</h2>
+                <span class="fs4-round-status">Em andamento</span>
+                <div class="fs4-ranking-container">
+                    <span class="fs4-ranking-label">Pontos</span>
+                    <div class="fs4-ranking-table">
+                        <div class="fs4-ranking-row" *ngFor="let item of items; let i = index" [class.fs4-ranking-row-grey]="i % 2 === 1">
+                            <div class="fs4-ranking-col-1">
+                                <span class="fs4-ranking-position">{{ i + 1 }}</span>
+                                <div class="fs4-ranking-profile">
+                                    <div class="fs4-ranking-profile-image">
+                                        <img src="/assets/images/ranking-profile.png" alt="Imagem de perfil do apostador">
+                                    </div>
+                                    <span class="fs4-ranking-profile-name">LucasBRez</span>
+                                </div>
+                            </div>
+                            <div class="fs4-ranking-col-2">
+                                <span class="fs4-ranking-show-hint">Ver palpites</span>
+                                <span class="fs4-ranking-points">26</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h2 class="fs4-title">Melhores Jogadores do Ranking Global</h2>
+                <img class="fs4-ranking-image" src="/assets/images/logo-show-de-bolao-2.svg" alt="Logo show de bolão">
+                <div class="fs4-ranking-container">
+                    <span class="fs4-ranking-label">Pontos</span>
+                    <div class="fs4-ranking-table">
+                        <div class="fs4-ranking-row" *ngFor="let item of items; let i = index" [class.fs4-ranking-row-grey]="i % 2 === 1">
+                            <div class="fs4-ranking-col-1 fs4-second-ranking">
+                                <span class="fs4-ranking-position">{{ i + 1 }}</span>
+                                <div class="fs4-ranking-profile">
+                                    <img class="fs4-trophy" src="/assets/icons/first.svg" alt="Primeiro lugar" *ngIf="i === 0">
+                                    <img class="fs4-trophy" src="/assets/icons/second.svg" alt="Segundo lugar" *ngIf="i === 1">
+                                    <img class="fs4-trophy" src="/assets/icons/third.svg" alt="Terceiro lugar" *ngIf="i === 2">
+                                    <div class="fs4-ranking-profile-image">
+                                        <img src="/assets/images/ranking-profile.png" alt="Imagem de perfil do apostador">
+                                    </div>
+                                    <span class="fs4-ranking-profile-name">LucasBRez</span>
+                                </div>
+                            </div>
+                            <div class="fs4-ranking-col-2">
+                                <span class="fs4-ranking-points">26</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           </ng-container>
         </div>
     </section>
 </div>

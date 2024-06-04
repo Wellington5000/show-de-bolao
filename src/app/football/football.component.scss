@@ -93,13 +93,15 @@
         margin-top: 50px;
         display: flex;
         justify-content: center;
+        width: 100%;
 
         .fs3-container {
-            width: 1086px;
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 0.75rem;
+            max-width: 1086px;
+            width: 100%;
 
             .fs3-title {
                 align-self: flex-start;
@@ -163,13 +165,22 @@
                                     font-size: 1rem;
                                     font-weight: 600;
                                 }
+                            }
 
-                                .fs3-team-separator {
+                            .fs3-team-scoreboard {
+                                display: flex;
+                                gap: 26px;
+
+                                .fs3-team-item {
                                     color: #052535;
                                     font-size: 1rem;
                                     font-weight: 600;
                                 }
                             }
+                        }
+
+                        .fs3-win {
+                            color: #34A853 !important;
                         }
                     }
                 }
@@ -179,11 +190,17 @@
 
     .f-section-4 {
         margin-top: 107px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
 
         .fs4-container {
             display: flex;
             flex-direction: column;
             align-items: center;
+            max-width: 1168px;
+            width: 100%;
+
 
             .fs4-title {
                 font-size: 40px;
@@ -198,6 +215,104 @@
                 font-weight: 700;
                 color: white;
                 line-height: 66px;
+            }
+
+            .fs4-round-status {
+                color: #FFFFFF99;
+                font-size: 1.25rem;
+                font-weight: 400;
+            }
+
+            .fs4-ranking-container {
+                margin-bottom: 64px;
+                width: 100%;
+                margin-top: 8px;
+                display: flex;
+                flex-direction: column;
+                
+                .fs4-ranking-label {
+                    align-self: flex-end;
+                    font-family: "Roboto", sans-serif;
+                    text-transform: uppercase;
+                    font-weight: 900;
+                    font-size: 14px;
+                    color: #D8DCDF;
+                }
+
+                .fs4-ranking-table {
+                    margin-top: 10px;
+
+                    .fs4-ranking-row-grey {
+                        background-color: #ECF0F1 !important;
+                    }
+                    
+                    .fs4-ranking-row {
+                        border: 1px solid #ECF0F1;
+                        padding: 11px 21px 11px 30px;
+                        background-color: white;
+                        display: flex;
+                        justify-content: space-between;
+
+                        .fs4-ranking-col-1 {
+                            gap: 34px;
+                            display: flex;
+                            align-items: center;
+
+                            .fs4-ranking-position {
+                                color: #95A5A6;
+                                font-size: 0.875rem;
+                                font-weight: 700;
+                                font-family: "Roboto", sans-serif;
+                            }
+
+                            .fs4-ranking-profile {
+                                gap: 0.5rem;
+                                display: flex;
+                                align-items: center;
+
+                                .fs4-ranking-profile-name {
+                                    color: #34495E;
+                                    font-weight: 700;
+                                    font-size: 1.25rem;
+                                    text-transform: uppercase;
+                                }                                
+                            }
+                        }
+
+                        .fs4-ranking-col-2 {
+                            gap: 49px;
+                            display: flex;
+                            align-items: center;
+
+                            .fs4-ranking-show-hint {
+                                font-weight: 700;
+                                font-size: 18px;
+                                color: #2ECC71;
+                                cursor: pointer;
+                            }
+
+                            .fs4-ranking-points {
+                                font-family: "Roboto", sans-serif;
+                                color: #95A5A6;
+                                font-size: 0.875rem;
+                                font-weight: 700;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .fs4-ranking-image {
+                margin-bottom: -81px;
+            }
+
+            .fs4-second-ranking {
+                gap: 38px !important;
+
+                .fs4-trophy {
+                    position: absolute;
+                    margin-left: -20px;
+                }
             }
         }
     }
