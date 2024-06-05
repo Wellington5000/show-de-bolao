@@ -210,6 +210,13 @@
                 color: #34A853;
             }
 
+            .fs4-subtitle {
+                line-height: 66px;
+                font-size: 40px;
+                font-weight: 700;
+                color: #EDEF1E;
+            }
+
             .fs4-text {
                 font-size: 20px;
                 font-weight: 700;
@@ -312,6 +319,15 @@
                 .fs4-trophy {
                     position: absolute;
                     margin-left: -20px;
+                }
+            }
+
+            .fs4-third-ranking {
+                gap: 42px !important;
+
+                .fs4-trophy {
+                    position: absolute;
+                    margin-left: -34px;
                 }
             }
         }

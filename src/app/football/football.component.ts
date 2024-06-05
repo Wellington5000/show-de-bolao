@@ -3,6 +3,9 @@ import { HeaderComponent } from '../components/header/header.component';
 import { CommonModule } from '@angular/common';
 import { ButtonComponent } from "../components/button/button.component";
 import { FooterComponent } from "../components/footer/footer.component";
+import { RouterLink } from '@angular/router';
+
+type RoundStatus= 'new-round' | 'in-progress' | 'finished';
 
 @Component({
     selector: 'app-football',
@@ -13,11 +16,12 @@ import { FooterComponent } from "../components/footer/footer.component";
         CommonModule,
         HeaderComponent,
         ButtonComponent,
-        FooterComponent
+        FooterComponent,
+        RouterLink
     ]
 })
 export class FootballComponent {
-  roundStatus: string = 'in-progress';
+  roundStatus: RoundStatus = 'new-round';
 
   items = Array(8).fill({
     game: {

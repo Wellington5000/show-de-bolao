@@ -1,0 +1,80 @@
+.b-section-1 {
+    .bs1-container {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding: 69px 66px 69px 66px;
+
+        .bs1-title {
+            font-size: 40px;
+            font-weight: 700;
+            color: white;
+            letter-spacing: -1.92px;
+            line-height: 66px;
+        }
+
+        .bs1-bet-value {
+            line-height: 20px;
+            font-size: 20px;
+            font-weight: 400;
+            color: white;
+        }
+
+        .bs1-table {
+            display: flex;
+            justify-content: center;
+
+            table {
+                margin-top: 14px;
+                width: 860px;
+
+                thead {
+                    tr {
+                        background-color: #34A853;
+                        color: white;
+    
+                        th {
+                            line-height: 23px;
+                        }
+                    }
+                }
+
+                tbody {
+                    td {
+                        padding: 12px 26px;
+                        text-align: center;
+                        background-color: white;
+                        border: 1px solid #DDDDDD;
+                        color: #4C556C;
+                        font-weight: 400;
+                        font-size: 14px;
+
+                        .bs1-team {
+                            gap: 16px;
+                            display: flex;
+                            align-items: center;
+                        }
+
+                        .bs1-hint {
+                            cursor: pointer;
+                            width: 32px;
+                            height: 32px;
+                            background-color: #E7E9EE;
+                            border-radius: 50%;
+                        }
+
+                        .bs1-team-info {
+                            display: flex;
+                            align-items: center;
+                        }
+
+                        .bs1-hint-container {
+                            display: flex;
+                            justify-content: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

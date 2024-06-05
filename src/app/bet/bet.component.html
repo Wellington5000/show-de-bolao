@@ -1,0 +1,52 @@
+<app-header></app-header>
+
+<section class="b-section-1">
+    <div class="bs1-container">
+        <h1 class="bs1-title">Preencha sua aposta</h1>
+        <span class="bs1-bet-value">Valor da aposta R$ 10.</span>
+
+        <div class="bs1-table-container">
+            <app-button [text]="'Limpar volante'" [variant]="'tertiary'"></app-button>
+            <div class="bs1-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Jogo</th>
+                            <th>Coluna 1</th>
+                            <th>X</th>
+                            <th>Coluna 2</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let game of roundGames">
+                            <td>01</td>
+                            <td>
+                               <div class="bs1-team">
+                                    <div class="bs1-hint"></div>
+                                    <div class="bs1-team-info">
+                                        <img src="/assets/images/team-1.png" alt="Time 1">
+                                        <span class="bs1-team-name"> | River Plate/ARG</span>
+                                    </div>
+                               </div>
+                            </td>
+                            <td>
+                                <div class="bs1-hint-container">
+                                    <div class="bs1-hint"></div>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="bs1-team">
+                                    <div class="bs1-team-info">
+                                        <img src="/assets/images/team-2.png" alt="Time 2">
+                                        <span class="bs1-team-name"> | Flamengo/BRA</span>
+                                    </div>
+                                    <div class="bs1-hint"></div>
+                               </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
