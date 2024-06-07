@@ -2,11 +2,12 @@
 
 <section class="b-section-1">
     <div class="bs1-container">
-        <h1 class="bs1-title">Preencha sua aposta</h1>
+        <div class="bs1-table-content">
+            <h1 class="bs1-title">Preencha sua aposta</h1>
         <span class="bs1-bet-value">Valor da aposta R$ 10.</span>
 
         <div class="bs1-table-container">
-            <app-button [text]="'Limpar volante'" [variant]="'tertiary'"></app-button>
+            <app-button class="bs1-table-clear-bet" [text]="'Limpar volante'" [variant]="'tertiary'" (clickButton)="clearHints()"></app-button>
             <div class="bs1-table">
                 <table>
                     <thead>
@@ -18,34 +19,63 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let game of roundGames">
-                            <td>01</td>
+                        <tr *ngFor="let match of roundGames; let i = index">
+                            <td>{{ i + 1 | zeroPad }}</td>
                             <td>
                                <div class="bs1-team">
-                                    <div class="bs1-hint"></div>
+                                    <div class="bs1-hint" [class.selected]="match.first_team_choose" (click)="selectHint('first-team', match)"></div>
                                     <div class="bs1-team-info">
                                         <img src="/assets/images/team-1.png" alt="Time 1">
-                                        <span class="bs1-team-name"> | River Plate/ARG</span>
+                                        <span class="bs1-team-name"> | {{ match.first_team }}</span>
                                     </div>
                                </div>
                             </td>
                             <td>
                                 <div class="bs1-hint-container">
-                                    <div class="bs1-hint"></div>
+                                    <div class="bs1-hint" [class.selected]="match.draw" (click)="selectHint('draw', match)"></div>
                                 </div>
                             </td>
                             <td>
                                 <div class="bs1-team">
                                     <div class="bs1-team-info">
+                                        <span class="bs1-team-name">{{ match.second_team }} | </span>
                                         <img src="/assets/images/team-2.png" alt="Time 2">
-                                        <span class="bs1-team-name"> | Flamengo/BRA</span>
                                     </div>
-                                    <div class="bs1-hint"></div>
+                                    <div class="bs1-hint" [class.selected]="match.second_team_choose" (click)="selectHint('second-team', match)"></div>
                                </div>
                             </td>
                         </tr>
                     </tbody>
                 </table>
+            </div>
+            <button class="bs1-add-cart">
+                <span class="material-symbols-rounded">shopping_cart</span>
+                Adicionar ao carrinho
+            </button>
+        </div>
+        </div>
+        <div class="bs1-payment-container">
+            <div class="bs1-payment-box">
+                <div class="bs1-payment-header">
+                    <div class="bs1-header-title">
+                        <span class="material-symbols-rounded">shopping_cart</span>
+                        <p>Carrinho</p>
+                    </div>
+                    <button class="bs1-header-clear">Limpar</button>
+                </div>
+                <div class="bs1-payment-body">
+                    <div class="bs1-payment-info">
+                        <span class="bs1-info-text">Quantidade</span>
+                        <span class="bs1-info-text">1</span>
+                    </div>
+                    <div class="bs1-payment-info">
+                        <span class="bs1-info-text">Total</span>
+                        <span class="bs1-info-text">{{ 10 | currency: 'BRL' }}</span>
+                    </div>
+                </div>
+                <div class="bs1-payment-footer">
+                    <button class="bs1-payment-button">Ir para pagamento</button>
+                </div>
             </div>
         </div>
     </div>
