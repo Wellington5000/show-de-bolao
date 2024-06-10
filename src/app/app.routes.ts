@@ -14,5 +14,5 @@ export const routes: Routes = [
     { path: 'recover-password/:reset', component: RecoverPasswordComponent },
 
     { path: 'football', component: FootballComponent },
-    { path: 'bet', component: BetComponent }, 
+    { path: 'betting', component: BetComponent }, 
 ]; 
