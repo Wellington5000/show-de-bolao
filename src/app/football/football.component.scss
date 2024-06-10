@@ -334,9 +334,11 @@
     }
 }
 
-:host ::ng-deep .f-section-4 app-button {
+.f-section-4 {
     button {
         background-color: #27AE60;
         padding: 0.5rem 57px;
+        color: white;
+        font-weight: 600;
     }
 }
