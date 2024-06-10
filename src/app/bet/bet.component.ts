@@ -3,6 +3,7 @@ import { HeaderComponent } from "../components/header/header.component";
 import { ButtonComponent } from "../components/button/button.component";
 import { CommonModule } from '@angular/common';
 import { ZeroPadPipe } from '../directives/zero-pad.pipe';
+import { RouterLink } from '@angular/router';
 
 
 export interface Match {
@@ -22,7 +23,7 @@ export interface Match {
     standalone: true,
     templateUrl: './bet.component.html',
     styleUrl: './bet.component.scss',
-    imports: [HeaderComponent, ButtonComponent, CommonModule, ZeroPadPipe]
+    imports: [HeaderComponent, ButtonComponent, CommonModule, ZeroPadPipe, RouterLink]
 })
 export class BetComponent implements OnInit {
   roundGames: Match[] = [
