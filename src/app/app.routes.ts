@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { RecoverPasswordComponent } from './recover-password/recover-password.component';
 import { FootballComponent } from './football/football.component';
 import { BetComponent } from './bet/bet.component';
+import { PaymentComponent } from './payment/payment.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent },
@@ -14,5 +15,6 @@ export const routes: Routes = [
     { path: 'recover-password/:reset', component: RecoverPasswordComponent },
 
     { path: 'football', component: FootballComponent },
-    { path: 'betting', component: BetComponent }, 
+    { path: 'betting', component: BetComponent },
+    { path: 'payment', component: PaymentComponent }, 
 ]; 

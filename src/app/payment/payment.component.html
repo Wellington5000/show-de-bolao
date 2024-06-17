@@ -1,0 +1,36 @@
+<app-header></app-header>
+
+<section class="p-section-1">
+    <div class="ps1-container">
+        <h1 class="ps1-title">Pagamento no pix</h1>
+        <div class="ps1-content">
+            <div class="ps1-top">
+                <div class="ps1-top-info">
+                    <span class="ps1-info-text">Valor da aposta</span>
+                    <span class="ps1-info-value">{{ 10 | currency: 'BRL' }}</span>
+                </div>
+                <div class="ps1-top-info">
+                    <span class="ps1-info-text">Quantidade</span>
+                    <span class="ps1-info-value">1</span>
+                </div>
+                <div class="ps1-top-info">
+                    <span class="ps1-info-text">Total</span>
+                    <span class="ps1-info-value">{{ 10 | currency: 'BRL' }}</span>
+                </div>
+                <button class="ps1-top-button">Conferir meus palpites</button>
+            </div>
+            <div class="ps1-bottom">
+                <span class="ps1-info-text">Escaneie o QR Code ou copie o código </span>
+                <img class="ps1-bottom-qr-code" src="/assets/images/qr-code.svg" alt="QR code">
+                <button class="ps1-bottom-pix-button">Copiar código pix</button>
+                <img class="ps1-bottom-secure" src="/assets/images/secure.svg" alt="Compra segura">
+            </div>
+        </div>
+        <a class="ps1-back-button" routerLink="/betting">
+            <button>
+                <span class="material-symbols-rounded">arrow_back</span>
+                Voltar
+            </button>
+        </a>
+    </div>
+</section>  

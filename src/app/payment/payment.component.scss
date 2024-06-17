@@ -1,0 +1,108 @@
+.p-section-1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .ps1-container {
+        margin-top: 56px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 28px;
+
+        .ps1-title {
+            font-size: 40px;
+            font-weight: 700;
+            line-height: 66px;
+            letter-spacing: -2px;
+            color: white;
+        }
+
+        .ps1-content {
+            width: 584px;
+            background-color: white;
+            border-radius: 4px;
+
+            .ps1-info-text {
+                font-weight: 600;
+                font-size: 20px;
+                line-height: 22px;
+            }
+
+            .ps1-top {
+                padding: 36px 32px 20px;
+                border-bottom: 2px dashed #052535;
+                display: flex;
+                gap: 12px;
+                flex-direction: column;
+
+                .ps1-top-info {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+
+                .ps1-info-value {
+                    font-weight: 600;
+                    font-size: 20px;
+                    line-height: 22px;
+                    color: #06AA50;
+                }
+
+                .ps1-top-button {
+                    background-color: #2ECC71;
+                    padding: 14px 166px;
+                    font-size: 16px;
+                    font-weight: 700;
+                    line-height: 18px;
+                    text-align: center;
+                    color: white;
+                    margin-top: 14px;
+                }
+            }
+
+            .ps1-bottom {
+                padding-top: 24px;
+                padding-bottom: 20px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                .ps1-info-text {
+                    margin-bottom: 16px;
+                }
+
+                .ps1-bottom-qr-code {
+                    margin-bottom: 12px;
+                }
+
+                .ps1-bottom-pix-button {
+                    margin-bottom: 20px;
+                    padding: 8px 33px;
+                    border-radius: 32px;
+                    font-weight: 700;
+                    background-color: white;
+                    color: #4C546D;
+                    font-size: 16px;
+                    line-height: 22px;
+                    border: 1px solid #4C546D;
+                    text-transform: uppercase;
+                }
+            }
+        }
+
+        .ps1-back-button {
+            align-self: flex-start;
+
+            button {
+                gap: 8px;
+                color: white;
+                background-color: #2ECC71;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 8px 16px;
+            }
+        }
+    }
+}

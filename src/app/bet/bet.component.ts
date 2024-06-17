@@ -17,7 +17,6 @@ export interface Match {
   second_team_country: number;
 }
 
-
 @Component({
     selector: 'app-bet',
     standalone: true,
@@ -26,6 +25,8 @@ export interface Match {
     imports: [HeaderComponent, ButtonComponent, CommonModule, ZeroPadPipe, RouterLink]
 })
 export class BetComponent implements OnInit {
+  shoppingCart: any[] = [];
+
   roundGames: Match[] = [
     {
       draw: false,
@@ -149,5 +150,10 @@ export class BetComponent implements OnInit {
       match.second_team_choose = false;
       match.draw = false;
     });
+  }
+
+  addShoppingCart(): void {
+    this.shoppingCart.push(this.roundGames);
+    this.clearHints();
   }
 }
