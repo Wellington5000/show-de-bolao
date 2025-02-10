@@ -25,6 +25,11 @@ button {
     &:hover {
         cursor: pointer;
     }
+
+    &:disabled {
+        cursor: not-allowed;
+        background-color: #8B8A8D;
+    }
 }
 
 .primary {

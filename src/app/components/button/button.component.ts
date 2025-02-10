@@ -11,9 +11,10 @@ export class ButtonComponent implements OnInit {
   @Input() text = 'Botão';
   @Input() variant = 'primary';
   @Output() clickButton = new EventEmitter();
+  @Input() disabled = false;
 
   ngOnInit(): void {
-    
+
   }
 
   buttonWarClicked(): void {

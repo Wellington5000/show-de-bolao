@@ -28,7 +28,7 @@ export class RecoverPasswordComponent implements OnInit {
 
     recoverPassword(): void {
         this.step = 'success-change-password';
-        
+
         setTimeout(() => {
             this.step = 'email';
             this.router.navigateByUrl('/login');

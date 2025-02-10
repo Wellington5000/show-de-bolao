@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { HeaderComponent } from '../components/header/header.component';
 import { CommonModule } from '@angular/common';
 import { ButtonComponent } from "../components/button/button.component";
 import { FooterComponent } from "../components/footer/footer.component";
-import { RouterLink } from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
+import {AuthService} from "../services/auth.services";
 
 type RoundStatus= 'new-round' | 'in-progress' | 'finished';
 
@@ -20,7 +21,7 @@ type RoundStatus= 'new-round' | 'in-progress' | 'finished';
         RouterLink
     ]
 })
-export class FootballComponent {
+export class FootballComponent implements OnInit {
   roundStatus: RoundStatus = 'new-round';
 
   items = Array(8).fill({
@@ -33,4 +34,16 @@ export class FootballComponent {
       second_team_score: 1
     }
   });
+
+  constructor(
+    private router: Router,
+    private authService: AuthService,
+  ) {
+  }
+
+  ngOnInit(): void {
+    if (!this.authService.isAuthenticated()) {
+      void this.router.navigate(['/login']);
+    }
+  }
 }
