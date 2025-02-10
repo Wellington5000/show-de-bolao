@@ -5,6 +5,7 @@ import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, V
 import {AuthService} from "../services/auth.services";
 import {LoginRequest} from "../models/login.model";
 import {NgOptimizedImage} from "@angular/common";
+import {NotificationService} from "../services/notification.service";
 
 @Component({
   selector: 'app-login',
@@ -23,6 +24,7 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private authService: AuthService,
+    private notificationService: NotificationService,
   ) {
   }
 
@@ -40,8 +42,20 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       const formData: LoginRequest = this.loginForm.value;
       this.authService.login(formData).subscribe({
-        next: () => this.router.navigate(['/football']),
-        error: (err) => console.error(err),
+        next: () => {
+          this.notificationService.addNotification({
+            message: 'Login efetuado com sucesso',
+            type: 'success',
+          });
+          void this.router.navigate(['/football']);
+        },
+        error: (_err) => {
+          console.error(_err);
+          this.notificationService.addNotification({
+            message: 'Usuário ou senha inválidos',
+            type: 'error',
+          });
+        },
       });
     }
   }

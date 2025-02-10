@@ -14,6 +14,7 @@ import {NgxMaskDirective} from 'ngx-mask';
 import {ButtonComponent} from "../components/button/button.component";
 import {AuthService} from "../services/auth.services";
 import {UserModel} from "../models/user.model";
+import {NotificationService} from "../services/notification.service";
 
 @Component({
   selector: 'app-register',
@@ -42,6 +43,7 @@ export class RegisterComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private authService: AuthService,
+    private notificationService: NotificationService,
   ) {
   }
 
@@ -66,13 +68,22 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(this.registerForm);
-    if (this.registerForm.valid) {
-      const formData: UserModel = this.registerForm.value;
-      this.authService.createAccount(formData).subscribe({
-        next: () => this.router.navigate(['/login']),
-        error: (err) => console.error(err),
-      });
-    }
+    const formData: UserModel = this.registerForm.value;
+    this.authService.createAccount(formData).subscribe({
+      next: () => {
+        this.notificationService.addNotification({
+          message: 'Conta criada com sucesso, faça login para continuar.',
+          type: 'success',
+        });
+        void this.router.navigate(['/login'])
+      },
+      error: (err) => {
+        this.notificationService.addNotification({
+          message: 'Erro ao criar conta, tente novamente.',
+          type: 'error',
+        });
+      },
+    });
+
   }
 }

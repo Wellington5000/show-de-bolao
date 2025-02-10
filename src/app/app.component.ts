@@ -4,6 +4,7 @@ import {RouterLink, RouterLinkActive, RouterModule, RouterOutlet} from '@angular
 import {HomeComponent} from "./home/home.component";
 import {RegisterComponent} from './register/register.component';
 import {LoginComponent} from './login/login.component';
+import {NotificationComponent} from "./components/notification/notification.component";
 
 @Component({
   selector: 'app-root',
@@ -19,7 +20,8 @@ import {LoginComponent} from './login/login.component';
     RouterLink,
     RouterOutlet,
     RouterLinkActive,
-    LoginComponent
+    LoginComponent,
+    NotificationComponent
   ]
 })
 export class AppComponent {
