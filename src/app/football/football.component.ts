@@ -1,28 +1,32 @@
 import {Component, OnInit} from '@angular/core';
-import { HeaderComponent } from '../components/header/header.component';
-import { CommonModule } from '@angular/common';
-import { ButtonComponent } from "../components/button/button.component";
-import { FooterComponent } from "../components/footer/footer.component";
+import {HeaderComponent} from '../components/header/header.component';
+import {CommonModule, NgOptimizedImage} from '@angular/common';
+import {ButtonComponent} from "../components/button/button.component";
+import {FooterComponent} from "../components/footer/footer.component";
 import {Router, RouterLink} from '@angular/router';
 import {AuthService} from "../services/auth.services";
+import {UserModel} from "../models/user.model";
+import {NotificationService} from "../services/notification.service";
 
-type RoundStatus= 'new-round' | 'in-progress' | 'finished';
+type RoundStatus = 'new-round' | 'in-progress' | 'finished';
 
 @Component({
-    selector: 'app-football',
-    standalone: true,
-    templateUrl: './football.component.html',
-    styleUrl: './football.component.scss',
-    imports: [
-        CommonModule,
-        HeaderComponent,
-        ButtonComponent,
-        FooterComponent,
-        RouterLink
-    ]
+  selector: 'app-football',
+  standalone: true,
+  templateUrl: './football.component.html',
+  styleUrl: './football.component.scss',
+  imports: [
+    CommonModule,
+    HeaderComponent,
+    ButtonComponent,
+    FooterComponent,
+    RouterLink,
+    NgOptimizedImage
+  ]
 })
 export class FootballComponent implements OnInit {
   roundStatus: RoundStatus = 'new-round';
+  user: UserModel;
 
   items = Array(8).fill({
     game: {
@@ -38,12 +42,30 @@ export class FootballComponent implements OnInit {
   constructor(
     private router: Router,
     private authService: AuthService,
+    private notificationService: NotificationService,
   ) {
   }
 
   ngOnInit(): void {
-    if (!this.authService.isAuthenticated()) {
-      void this.router.navigate(['/login']);
-    }
+    this.authService.me().subscribe({
+      next: (user) => {
+        if (!user.surname) {
+          this.notificationService.addNotification({
+            message: 'Complete seu cadastro para continuar!',
+            type: 'warning',
+          });
+          void this.router.navigate(['/cadastro-apelido']);
+        } else {
+          this.user = user;
+        }
+      },
+      error: (_err) => {
+        this.notificationService.addNotification({
+          message: 'Erro ao buscar usuário, faça login novamente!',
+          type: 'error',
+        });
+        void this.router.navigate(['/login']);
+      }
+    })
   }
 }

@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {HttpClient, HttpParams} from '@angular/common/http';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +9,8 @@ export class ApiService {
 
   private readonly baseUrl = 'http://localhost:8000/api/v1';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   /**
    * Realiza uma requisição GET.
@@ -19,7 +20,7 @@ export class ApiService {
    */
   get<T>(endpoint: string, params?: Record<string, any>, responseType: 'json' = 'json'): Observable<T> {
     const httpParams = this.buildHttpParams(params);
-    return this.http.get<T>(`${this.baseUrl}/${endpoint}`, { params: httpParams, responseType });
+    return this.http.get<T>(`${this.baseUrl}/${endpoint}`, {params: httpParams, responseType});
   }
 
   /**
@@ -38,6 +39,10 @@ export class ApiService {
    */
   put<T, B = any>(endpoint: string, body: B): Observable<T> {
     return this.http.put<T>(`${this.baseUrl}/${endpoint}`, body);
+  }
+
+  patch<T, B = any>(endpoint: string, body: Partial<B>): Observable<T> {
+    return this.http.patch<T>(`${this.baseUrl}/${endpoint}`, body);
   }
 
   /**

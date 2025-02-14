@@ -3,6 +3,8 @@ export interface UserModel {
   name?: string | null;
   email?: string | null;
   email_verified_at?: string;
+  surname?: string | null;
+  signature?: SignatureModel;
   password?: string | null;
   phone_number?: string | null;
   remember_token?: string;
@@ -14,4 +16,17 @@ export interface UserModel {
   guru_user_id?: string;
   created_at?: string;
   updated_at?: string;
+}
+
+export interface SignatureModel {
+  id?: number;
+  plan?: string;
+  data_encerramento?: string;
+  prazo_beneficios?: string;
+  situacao?: string;
+  motivo?: string | null;
+  created_at?: string;
+  updated_at?: string;
+  plano?: number;
+  user?: number;
 }

@@ -1,0 +1,141 @@
+.r-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  height: 100vh;
+
+  .block-line {
+    margin-left: 3rem;
+    margin-right: 3rem;
+    display: flex;
+    height: 200px;
+
+    .vertical-line {
+      border-left: 2px solid white;
+      height: 100%;
+      background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0) 0%, /* Transparente no topo */
+          rgba(0, 0, 0, 1) 50%, /* Opaco no meio */
+          rgba(0, 0, 0, 0) 100% /* Transparente no final */
+      );
+    }
+  }
+
+  a {
+    cursor: pointer;
+  }
+
+  .r-image-container {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+
+    img {
+      height: 100vh;
+    }
+  }
+
+  .r-form-container {
+    width: 40%;
+    min-width: 35.125rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .r-form {
+    gap: 1.5rem;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+
+    h2 {
+      font-size: 1.50rem;
+      font-weight: 700;
+      color: white;
+      align-self: flex-start;
+      font-family: "Cascadia Code", sans-serif;
+    }
+    .r-form-body {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      color: #b7b1b1;
+      font-size: 1rem;
+    }
+    .r-form-fields {
+      gap: 10px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .input-container {
+      label {
+        font-size: 1rem;
+        font-weight: 100;
+        color: white;
+        line-height: 24px;
+      }
+    }
+
+    .ic-icon {
+      position: absolute;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid #D8DCDF;
+    }
+
+
+    input {
+      width: 20rem;
+      height: 2.75rem;
+      outline: none;
+      font-size: 1rem;
+      padding-left: 54px;
+      padding-right: 8px;
+      border-radius: 2px;
+      border: 1px solid #D8DCDF;
+    }
+  }
+
+  .r-form-footer {
+    line-height: 20px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: white;
+
+    a {
+      color: #3498DB;
+    }
+  }
+
+  .l-recover-password {
+    margin-top: 4px;
+    color: #3498DB;
+    font-size: 1rem;
+    font-weight: 100;
+    align-self: flex-end;
+  }
+
+  .text-danger {
+    color: red;
+    font-size: 0.75rem;
+    font-weight: 500;
+    margin-top: 4px;
+  }
+
+}
+
+:host ::ng-deep app-button button {
+  margin-top: 8px;
+  width: 100%;
+
+}

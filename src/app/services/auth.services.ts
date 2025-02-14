@@ -27,6 +27,25 @@ export class AuthService {
     );
   }
 
+  initializeTokens(): void {
+    const storedTokens = this.getTokensFromStorage();
+    this.tokenSubject.next(storedTokens);
+  }
+
+  me(): Observable<UserModel> {
+    return this.apiService.get<UserModel>('me').pipe(
+      tap((user) => void 1),
+      map((user) => user)
+    );
+  }
+
+  addSurname(surname: string): Observable<void> {
+    return this.apiService.patch<UserModel>('me', {surname}).pipe(
+      tap(() => void 1),
+      map(() => void 0)
+    );
+  }
+
   /**
    * Realiza o login do usuário e salva os tokens no storage.
    */
@@ -52,7 +71,7 @@ export class AuthService {
    * Renova o token de acesso utilizando o refresh token.
    */
   refreshAccessToken(): Observable<void> {
-    const tokens = this.getTokens();
+    const tokens = this.getTokensFromStorage();
     if (!tokens || !tokens.refresh) {
       return throwError(() => new Error('Nenhum refresh token disponível.'));
     }
@@ -70,7 +89,7 @@ export class AuthService {
    * Verifica se o usuário está autenticado.
    */
   isAuthenticated(): boolean {
-    const tokens = this.getTokens();
+    const tokens = this.getTokensFromStorage();
     if (!tokens?.access || !tokens?.refresh) {
       return false;
     }
@@ -102,7 +121,7 @@ export class AuthService {
    * Retorna o token de acesso atual.
    */
   getAccessToken(): string | null {
-    return this.getTokens()?.access || null;
+    return this.getTokensFromStorage()?.access || null;
   }
 
   /**

@@ -5,6 +5,7 @@ import {HomeComponent} from "./home/home.component";
 import {RegisterComponent} from './register/register.component';
 import {LoginComponent} from './login/login.component';
 import {NotificationComponent} from "./components/notification/notification.component";
+import {SharedModule} from "./shared/shared.module";
 
 @Component({
   selector: 'app-root',
@@ -12,6 +13,7 @@ import {NotificationComponent} from "./components/notification/notification.comp
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   imports: [
+    SharedModule,
     CommonModule,
     RouterOutlet,
     HomeComponent,

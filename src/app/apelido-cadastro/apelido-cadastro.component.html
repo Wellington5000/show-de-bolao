@@ -1,0 +1,38 @@
+<div class="r-container">
+  <div class="r-image-container">
+    <h2 class="r-form-title"></h2>
+    <img class="bouncing-image" ngSrc="/assets/images/logo-show-de-bolao.svg" alt="Logo"
+         style="position: initial; width: 350px; height: 100%; inset: 0;"
+         height="400" width="400">
+  </div>
+  <div class="block-line">
+    <div class="vertical-line"></div>
+  </div>
+  <div class="r-form-container">
+    <form class="r-form" [formGroup]="apelidoForm" (ngSubmit)="onSubmit()">
+        <h2 class="r-form-title">Bem vindo ao Show de Bolão</h2>
+      <div style="display: flex; width: 380px;">
+        <span class="r-form-body">Para começar, precisamos de um apelido/pseudônimo para você, ele será utilizado para identificação no Show de Bolão, como forma de preservar sua privacidade.</span>
+      </div>
+      <div class="r-form-fields">
+        <div class="input-container">
+          <label for="apelido">Apelido/Pseudônimo</label>
+          <div class="input-content">
+            <div class="ic-icon">
+              <img ngSrc="/assets/icons/person.svg" alt="Ícone de pessoa" height="17" width="15"/>
+            </div>
+            <input
+              type="text"
+              id="apelido"
+              formControlName="apelido"
+            />
+            <div *ngIf="apelidoForm.get('apelido')?.invalid && apelidoForm.get('apelido')?.touched" class="text-danger">
+              O apelido é obrigatório e deve ter no mínimo 3 caracteres.
+            </div>
+          </div>
+        </div>
+        <app-button [text]="'Cadastrar'" [disabled]="apelidoForm.invalid"></app-button>
+      </div>
+    </form>
+  </div>
+</div>
