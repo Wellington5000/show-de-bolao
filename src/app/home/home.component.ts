@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {CustomButtonComponent} from "../components/custom-button/custom-button.component";
-import {Router, RouterLink} from '@angular/router';
+import {RouterLink} from '@angular/router';
 import {FooterComponent} from "../components/footer/footer.component";
-import {AuthService} from "../services/auth.services";
 
 @Component({
   selector: 'app-home',
@@ -16,15 +15,11 @@ import {AuthService} from "../services/auth.services";
   ]
 })
 export class HomeComponent implements OnInit {
-  constructor(
-    private authService: AuthService,
-    private router: Router
-  ) {}
+  constructor() {
+  }
 
   ngOnInit(): void {
-    if (this.authService.isAuthenticated()) {
-      void this.router.navigate(['/football']);
-    }
+
   }
 
 }
