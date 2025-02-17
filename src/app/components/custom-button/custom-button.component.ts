@@ -12,6 +12,6 @@ export class CustomButtonComponent  {
   @Output() clickButton = new EventEmitter();
 
   ngOnInit(): void {
-    
+
   }
 }

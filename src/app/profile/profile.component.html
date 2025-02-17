@@ -1,0 +1,57 @@
+<app-header></app-header>
+<div class="r-container">
+  <h3 class="r-form-title">Meu perfil</h3>
+  <div class="r-form-container">
+    <div class="box-profile">
+      <form [formGroup]="userForm" class="r-form">
+
+        <div class="columns">
+          <div class="profile-image item">
+            <img src="/assets/images/profile2.png" alt="Imagem de perfil" style="width: 250px">
+          </div>
+          <div class="r-form-fields item">
+            <div class="input-container">
+              <label for="name">Nome</label>
+              <div class="input-content">
+                <div class="ic-icon">
+                  <img src="/assets/icons/person.svg" alt="Ícone de pessoa" height="17" width="15">
+                </div>
+                <input id="name" type="text" formControlName="name" [maxLength]="150" [readOnly]="true">
+              </div>
+            </div>
+            <div class="input-container">
+              <label for="surname">Apelido</label>
+              <div class="input-content">
+                <div class="ic-icon">
+                  <img src="/assets/icons/person.svg" alt="Ícone de pessoa" height="17" width="15">
+                </div>
+                <input id="surname" type="text" formControlName="surname" [maxLength]="100" [readOnly]="true">
+              </div>
+            </div>
+            <div class="input-container">
+              <label for="phone_number">Telefone</label>
+              <div class="input-content">
+                <div class="ic-icon">
+                  <img src="/assets/icons/phone.svg" alt="Ícone de telefone" height="20" width="20">
+                </div>
+                <input id="phone_number" type="text" formControlName="phone_number" mask="(00) 0 0000 0000" [readOnly]="true">
+              </div>
+            </div>
+            <div class="input-container">
+              <label for="email">E-mail</label>
+              <div class="input-content">
+                <div class="ic-icon">
+                  <img src="/assets/icons/email.svg" alt="Ícone de email" height="16" width="20">
+                </div>
+                <input id="email" type="email" formControlName="email" [maxLength]="150" [readOnly]="true">
+              </div>
+            </div>
+            <app-button [text]="'Mudar senha'"></app-button>
+            <a routerLink="/logout"><app-button [text]="'Sair'" [variant]="'transparent'"></app-button></a>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

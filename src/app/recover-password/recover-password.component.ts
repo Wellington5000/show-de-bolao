@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ButtonComponent } from "../components/button/button.component";
-import { CommonModule } from '@angular/common';
+import {CommonModule, NgOptimizedImage} from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
@@ -8,7 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
     standalone: true,
     templateUrl: './recover-password.component.html',
     styleUrl: './recover-password.component.scss',
-    imports: [CommonModule, ButtonComponent]
+  imports: [CommonModule, ButtonComponent, NgOptimizedImage]
 })
 export class RecoverPasswordComponent implements OnInit {
     step: string = 'email';

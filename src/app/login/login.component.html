@@ -1,7 +1,7 @@
 <div class="r-container">
-  <a routerLink=""><img class="r-logo" ngSrc="/assets/images/logo-show-de-bolao.svg" alt="Logo" height="74" width="66"></a>
+  <a routerLink=""><img class="r-logo" src="/assets/images/logo-show-de-bolao.svg" alt="Logo" height="74" width="66"></a>
   <div class="r-image-container">
-    <img ngSrc="/assets/images/jogador-cabeceando.png" alt="Jogador de costas" height="730" width="964">
+    <img src="/assets/images/jogador-cabeceando.png" alt="Jogador de costas" height="730" width="964">
   </div>
   <div class="r-form-container">
     <form class="r-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
@@ -11,7 +11,7 @@
           <label for="name">E-mail ou apelido</label>
           <div class="input-content">
             <div class="ic-icon">
-              <img ngSrc="/assets/icons/email.svg" alt="Ícone de email" height="16" width="20">
+              <img src="/assets/icons/email.svg" alt="Ícone de email" height="16" width="20">
             </div>
             <input type="text" name="name" formControlName="login" id="name">
           </div>
@@ -20,7 +20,7 @@
           <label for="password">Senha</label>
           <div class="input-content">
             <div class="ic-icon">
-              <img ngSrc="/assets/icons/password.svg" alt="Ícone de senha" height="17" width="15">
+              <img src="/assets/icons/password.svg" alt="Ícone de senha" height="17" width="15">
             </div>
             <input type="password" name="password" [maxLength]="150" formControlName="password" id="password">
           </div>
@@ -28,7 +28,7 @@
         <a routerLink="/recover-password" class="l-recover-password">esqueceu a senha?</a>
         <app-button [text]="'Entrar'" [disabled]="loginForm.invalid"></app-button>
       </div>
-      <span class="r-form-footer">Ainda não tem uma conta? <a routerLink="/register">Cadastre aqui</a></span>
+<!--      <span class="r-form-footer">Ainda não tem uma conta? <a routerLink="/register">Cadastre aqui</a></span>-->
     </form>
   </div>
 </div>

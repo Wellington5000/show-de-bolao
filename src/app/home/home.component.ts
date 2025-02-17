@@ -1,10 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {ButtonComponent} from "../components/button/button.component";
 import {CustomButtonComponent} from "../components/custom-button/custom-button.component";
 import {Router, RouterLink} from '@angular/router';
 import {FooterComponent} from "../components/footer/footer.component";
 import {AuthService} from "../services/auth.services";
-import {NgOptimizedImage} from "@angular/common";
 
 @Component({
   selector: 'app-home',
@@ -12,11 +10,9 @@ import {NgOptimizedImage} from "@angular/common";
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
   imports: [
-    ButtonComponent,
     CustomButtonComponent,
     RouterLink,
     FooterComponent,
-    NgOptimizedImage
   ]
 })
 export class HomeComponent implements OnInit {

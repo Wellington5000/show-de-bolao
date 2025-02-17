@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HeaderComponent} from '../components/header/header.component';
-import {CommonModule, NgOptimizedImage} from '@angular/common';
-import {ButtonComponent} from "../components/button/button.component";
+import {CommonModule} from '@angular/common';
 import {FooterComponent} from "../components/footer/footer.component";
 import {Router, RouterLink} from '@angular/router';
 import {AuthService} from "../services/auth.services";
@@ -18,10 +17,8 @@ type RoundStatus = 'new-round' | 'in-progress' | 'finished';
   imports: [
     CommonModule,
     HeaderComponent,
-    ButtonComponent,
     FooterComponent,
     RouterLink,
-    NgOptimizedImage
   ]
 })
 export class FootballComponent implements OnInit {

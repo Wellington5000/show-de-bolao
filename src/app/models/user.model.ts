@@ -16,6 +16,7 @@ export interface UserModel {
   guru_user_id?: string;
   created_at?: string;
   updated_at?: string;
+  avatar?: string;
 }
 
 export interface SignatureModel {

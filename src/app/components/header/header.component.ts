@@ -1,24 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { ButtonComponent } from "../button/button.component";
 import { CustomButtonComponent } from "../custom-button/custom-button.component";
-import { CommonModule } from '@angular/common';
+import {CommonModule} from '@angular/common';
+import {RouterLink} from "@angular/router";
 
 @Component({
     selector: 'app-header',
     standalone: true,
     templateUrl: './header.component.html',
     styleUrl: './header.component.scss',
-    imports: [
-        ButtonComponent, 
-        CustomButtonComponent,
-        CommonModule
-    ]
+  imports: [
+    CustomButtonComponent,
+    CommonModule,
+    RouterLink
+  ]
 })
 export class HeaderComponent implements OnInit {
 
     constructor() { }
 
     ngOnInit(): void {
-        
+
     }
 }

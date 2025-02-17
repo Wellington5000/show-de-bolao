@@ -1,11 +1,7 @@
 import {Component} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {RouterLink, RouterLinkActive, RouterModule, RouterOutlet} from '@angular/router';
-import {HomeComponent} from "./home/home.component";
-import {RegisterComponent} from './register/register.component';
-import {LoginComponent} from './login/login.component';
-import {NotificationComponent} from "./components/notification/notification.component";
-import {SharedModule} from "./shared/shared.module";
+import {RouterModule, RouterOutlet} from '@angular/router';
+import {NotificationComponent} from "./components/notification/notification.component";;
 
 @Component({
   selector: 'app-root',
@@ -13,17 +9,12 @@ import {SharedModule} from "./shared/shared.module";
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
   imports: [
-    SharedModule,
     CommonModule,
     RouterOutlet,
-    HomeComponent,
     RouterModule,
-    RegisterComponent,
-    RouterLink,
     RouterOutlet,
-    RouterLinkActive,
-    LoginComponent,
-    NotificationComponent
+    NotificationComponent,
+
   ]
 })
 export class AppComponent {

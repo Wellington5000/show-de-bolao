@@ -1,11 +1,10 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {Router, RouterLink} from '@angular/router';
-import {SharedModule} from "../shared/shared.module";
-import {NgOptimizedImage} from "@angular/common";
+import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
 import {ButtonComponent} from "../components/button/button.component";
 import {AuthService} from "../services/auth.services";
 import {NotificationService} from "../services/notification.service";
+import {NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-apelido-cadastro',
@@ -13,10 +12,9 @@ import {NotificationService} from "../services/notification.service";
   styleUrls: ['./apelido-cadastro.component.scss'],
   standalone: true,
   imports: [
-    SharedModule,
-    NgOptimizedImage,
     ButtonComponent,
-    RouterLink
+    ReactiveFormsModule,
+    NgIf,
   ]
 })
 export class ApelidoCadastroComponent implements OnInit {

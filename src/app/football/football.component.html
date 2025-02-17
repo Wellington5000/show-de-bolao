@@ -2,31 +2,31 @@
 <div class="f-container">
   <section class="f-section-1">
     <div class="f-profile">
-      <img ngSrc="/assets/images/profile.png" alt="Foto do perfil" height="80" width="80">
+      <img src="/assets/images/profile.png" alt="Foto do perfil" height="80" width="80">
       <div class="f-profile-info">
         <p class="f-profile-name" *ngIf="user">{{ user.surname }}</p>
-        <a href="#" class="f-profile-link">Ver meu perfil</a>
+        <a [routerLink]="'/profile'" class="f-profile-link">Ver meu perfil</a>
       </div>
     </div>
     <div class="f-info">
       <div class="f-info-item">
         <p class="f-item-title">Pontos</p>
         <div class="f-item-box">
-          <img ngSrc="/assets/icons/header/medium-winner.svg" alt="Taça média" height="44" width="44">
+          <img src="/assets/icons/header/medium-winner.svg" alt="Taça média" height="44" width="44">
           <p class="f-box-text">0</p>
         </div>
       </div>
       <div class="f-info-item">
         <p class="f-item-title">Saldo</p>
         <div class="f-item-box">
-          <img ngSrc="/assets/icons/header/medium-money.svg" alt="Moeda média" height="52" width="52">
+          <img src="/assets/icons/header/medium-money.svg" alt="Moeda média" height="52" width="52">
           <p class="f-box-text">{{ 0 | currency: 'BRL' }}</p>
         </div>
       </div>
       <div class="f-info-item">
         <p class="f-item-title">Cashback</p>
         <div class="f-item-box">
-          <img ngSrc="/assets/icons/header/medium-ticket.svg" alt="Ticket médio" height="50" width="50">
+          <img src="/assets/icons/header/medium-ticket.svg" alt="Ticket médio" height="50" width="50">
           <p class="f-box-text">{{ 0 | currency: 'BRL' }}</p>
         </div>
       </div>
@@ -50,7 +50,7 @@
             <span class="fs3-info-tournament">{{ item.game.tournament }}</span>
             <div class="fs3-info-teams">
               <div class="fs3-team">
-                <img class="fs3-team-shield" ngSrc="/assets/images/team-1.png" alt="Escudo do time 1"
+                <img class="fs3-team-shield" src="/assets/images/team-1.png" alt="Escudo do time 1"
                      height="40" width="40">
                 <span class="fs3-team-name"
                       [class.fs3-win]="(item.game.first_team_score >= item.game.second_team_score) && ['in-progress', 'finished'].includes(roundStatus)">{{ item.game.first_team }}</span>
@@ -65,7 +65,7 @@
               <div class="fs3-team">
                 <span class="fs3-team-name"
                       [class.fs3-win]="(item.game.first_team_score <= item.game.second_team_score) && ['in-progress', 'finished'].includes(roundStatus)">{{ item.game.second_team }}</span>
-                <img class="fs3-team-shield" ngSrc="/assets/images/team-2.png" alt="Escudo do time 1"
+                <img class="fs3-team-shield" src="/assets/images/team-2.png" alt="Escudo do time 1"
                      height="40" width="40">
               </div>
             </div>
@@ -78,7 +78,7 @@
     <div class="fs4-container">
       <ng-container *ngIf="['new-round'].includes(roundStatus)">
         <h2 class="fs4-title">Melhores Jogadores do Ranking Global</h2>
-        <img ngSrc="/assets/images/best-team.png" alt="Melhor time" height="500" width="750">
+        <img src="/assets/images/best-team.png" alt="Melhor time" height="500" width="750">
         <p class="fs4-text">Após finalizar a 1° rodada teremos o resultado do Ranking global</p>
         <a routerLink="/betting">
           <button class="fs4-betting-button">Participar</button>
@@ -96,7 +96,7 @@
                 <span class="fs4-ranking-position">{{ i + 1 }}</span>
                 <div class="fs4-ranking-profile">
                   <div class="fs4-ranking-profile-image">
-                    <img ngSrc="/assets/images/ranking-profile.png" alt="Imagem de perfil do apostador"
+                    <img src="/assets/images/ranking-profile.png" alt="Imagem de perfil do apostador"
                          height="37" width="37">
                   </div>
                   <span class="fs4-ranking-profile-name">LucasBRez</span>
@@ -110,7 +110,7 @@
           </div>
         </div>
         <h2 class="fs4-title">Melhores Jogadores do Ranking Global</h2>
-        <img class="fs4-ranking-image" ngSrc="/assets/images/logo-show-de-bolao-2.svg" alt="Logo show de bolão"
+        <img class="fs4-ranking-image" src="/assets/images/logo-show-de-bolao-2.svg" alt="Logo show de bolão"
              height="141" width="140">
         <div class="fs4-ranking-container">
           <span class="fs4-ranking-label">Pontos</span>
@@ -120,14 +120,14 @@
               <div class="fs4-ranking-col-1 fs4-second-ranking">
                 <span class="fs4-ranking-position">{{ i + 1 }}</span>
                 <div class="fs4-ranking-profile">
-                  <img class="fs4-trophy" ngSrc="/assets/icons/first.svg" alt="Primeiro lugar" *ngIf="i === 0"
+                  <img class="fs4-trophy" src="/assets/icons/first.svg" alt="Primeiro lugar" *ngIf="i === 0"
                        height="15" width="16">
-                  <img class="fs4-trophy" ngSrc="/assets/icons/second.svg" alt="Segundo lugar" *ngIf="i === 1"
+                  <img class="fs4-trophy" src="/assets/icons/second.svg" alt="Segundo lugar" *ngIf="i === 1"
                        height="15" width="16">
-                  <img class="fs4-trophy" ngSrc="/assets/icons/third.svg" alt="Terceiro lugar" *ngIf="i === 2"
+                  <img class="fs4-trophy" src="/assets/icons/third.svg" alt="Terceiro lugar" *ngIf="i === 2"
                        height="15" width="16">
                   <div class="fs4-ranking-profile-image">
-                    <img ngSrc="/assets/images/ranking-profile.png" alt="Imagem de perfil do apostador"
+                    <img src="/assets/images/ranking-profile.png" alt="Imagem de perfil do apostador"
                          height="37" width="37">
                   </div>
                   <span class="fs4-ranking-profile-name">LucasBRez</span>
@@ -150,10 +150,10 @@
               <div class="fs4-ranking-col-1 fs4-third-ranking">
                 <span class="fs4-ranking-position">{{ i + 1 }}</span>
                 <div class="fs4-ranking-profile">
-                  <img class="fs4-trophy" ngSrc="/assets/icons/trophy.svg" alt="Primeiro lugar" *ngIf="i === 0"
+                  <img class="fs4-trophy" src="/assets/icons/trophy.svg" alt="Primeiro lugar" *ngIf="i === 0"
                        height="29" width="29">
                   <div class="fs4-ranking-profile-image">
-                    <img ngSrc="/assets/images/ranking-profile.png" alt="Imagem de perfil do apostador"
+                    <img src="/assets/images/ranking-profile.png" alt="Imagem de perfil do apostador"
                          height="37" width="37">
                   </div>
                   <span class="fs4-ranking-profile-name">LucasBRez</span>
@@ -176,14 +176,14 @@
               <div class="fs4-ranking-col-1 fs4-second-ranking">
                 <span class="fs4-ranking-position">{{ i + 1 }}</span>
                 <div class="fs4-ranking-profile">
-                  <img class="fs4-trophy" ngSrc="/assets/icons/first.svg" alt="Primeiro lugar" *ngIf="i === 0"
+                  <img class="fs4-trophy" src="/assets/icons/first.svg" alt="Primeiro lugar" *ngIf="i === 0"
                        height="15" width="16">
-                  <img class="fs4-trophy" ngSrc="/assets/icons/second.svg" alt="Segundo lugar" *ngIf="i === 1"
+                  <img class="fs4-trophy" src="/assets/icons/second.svg" alt="Segundo lugar" *ngIf="i === 1"
                        height="15" width="16">
-                  <img class="fs4-trophy" ngSrc="/assets/icons/third.svg" alt="Terceiro lugar" *ngIf="i === 2"
+                  <img class="fs4-trophy" src="/assets/icons/third.svg" alt="Terceiro lugar" *ngIf="i === 2"
                        height="15" width="16">
                   <div class="fs4-ranking-profile-image">
-                    <img ngSrc="/assets/images/ranking-profile.png" alt="Imagem de perfil do apostador"
+                    <img src="/assets/images/ranking-profile.png" alt="Imagem de perfil do apostador"
                          height="37" width="37">
                   </div>
                   <span class="fs4-ranking-profile-name">LucasBRez</span>

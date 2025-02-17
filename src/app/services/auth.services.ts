@@ -62,9 +62,16 @@ export class AuthService {
   /**
    * Faz o logout do usuário, removendo os tokens do storage.
    */
-  logout(): void {
-    this.tokenSubject.next(null);
-    this.clearTokens();
+  logout(): Observable<void> {
+    return this.apiService.post('logout', {
+      refresh: this.getTokensFromStorage()?.refresh,
+    }).pipe(
+      tap(() => {
+        this.tokenSubject.next(null);
+        this.clearTokens();
+      }),
+      map(() => void 0)
+    );
   }
 
   /**

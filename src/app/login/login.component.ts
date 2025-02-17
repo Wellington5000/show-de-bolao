@@ -4,7 +4,7 @@ import {Router, RouterLink} from '@angular/router';
 import {FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators} from "@angular/forms";
 import {AuthService} from "../services/auth.services";
 import {LoginRequest} from "../models/login.model";
-import {NgOptimizedImage} from "@angular/common";
+
 import {NotificationService} from "../services/notification.service";
 
 @Component({
@@ -12,7 +12,7 @@ import {NotificationService} from "../services/notification.service";
   standalone: true,
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss',
-  imports: [ButtonComponent, RouterLink, FormsModule, NgOptimizedImage, ReactiveFormsModule]
+  imports: [ButtonComponent, RouterLink, FormsModule, ReactiveFormsModule]
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup<{

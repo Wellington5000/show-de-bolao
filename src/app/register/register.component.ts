@@ -9,7 +9,6 @@ import {
   ReactiveFormsModule
 } from '@angular/forms';
 import {Router, RouterLink} from '@angular/router';
-import {NgOptimizedImage} from '@angular/common';
 import {NgxMaskDirective} from 'ngx-mask';
 import {ButtonComponent} from "../components/button/button.component";
 import {AuthService} from "../services/auth.services";
@@ -18,16 +17,15 @@ import {NotificationService} from "../services/notification.service";
 
 @Component({
   selector: 'app-register',
-  standalone: true,
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
   imports: [
     RouterLink,
-    NgOptimizedImage,
     NgxMaskDirective,
     ReactiveFormsModule,
     ButtonComponent,
   ],
+  standalone: true
 })
 export class RegisterComponent implements OnInit {
   registerForm!: FormGroup<{
@@ -77,7 +75,7 @@ export class RegisterComponent implements OnInit {
         });
         void this.router.navigate(['/login'])
       },
-      error: (err) => {
+      error: (_err) => {
         this.notificationService.addNotification({
           message: 'Erro ao criar conta, tente novamente.',
           type: 'error',
