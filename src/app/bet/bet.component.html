@@ -19,29 +19,29 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let match of roundGames; let i = index">
+                        <tr *ngFor="let item of games.matches; let i = index">
                             <td>{{ i + 1 | zeroPad }}</td>
                             <td>
-                               <div class="bs1-team">
-                                    <div class="bs1-hint" [class.selected]="match.first_team_choose" (click)="selectHint('first-team', match)"></div>
+                               <div class="bs1-team-home">
+                                    <div class="bs1-hint" [class.selected]="item.hunch === 'CASA'" (click)="selectHint('CASA', item)"></div>
                                     <div class="bs1-team-info">
-                                        <img src="/assets/images/team-1.png" alt="Time 1">
-                                        <span class="bs1-team-name"> | {{ match.first_team }}</span>
+                                        <img src="{{item.match.team_home_logo}}" alt="Time 1" height="40" width="40">
+                                        <span class="bs1-team-name"> {{ item.match.team_home_name }}</span>
                                     </div>
                                </div>
                             </td>
                             <td>
                                 <div class="bs1-hint-container">
-                                    <div class="bs1-hint" [class.selected]="match.draw" (click)="selectHint('draw', match)"></div>
+                                    <div class="bs1-hint" [class.selected]="item.hunch === 'EMPATE'" (click)="selectHint('EMPATE', item)"></div>
                                 </div>
                             </td>
                             <td>
-                                <div class="bs1-team">
+                                <div class="bs1-team-away">
                                     <div class="bs1-team-info">
-                                        <span class="bs1-team-name">{{ match.second_team }} | </span>
-                                        <img src="/assets/images/team-2.png" alt="Time 2">
+                                        <span class="bs1-team-name">{{ item.match.team_away_name }} </span>
+                                        <img src="{{ item.match.team_away_logo }}" alt="Time 2" height="40" width="40">
                                     </div>
-                                    <div class="bs1-hint" [class.selected]="match.second_team_choose" (click)="selectHint('second-team', match)"></div>
+                                    <div class="bs1-hint" [class.selected]="item.hunch === 'FORA'" (click)="selectHint('FORA', item)"></div>
                                </div>
                             </td>
                         </tr>
@@ -66,11 +66,11 @@
                 <div class="bs1-payment-body">
                     <div class="bs1-payment-info">
                         <span class="bs1-info-text">Quantidade</span>
-                        <span class="bs1-info-text">1</span>
+                        <span class="bs1-info-text">{{quantityCart}}</span>
                     </div>
                     <div class="bs1-payment-info">
                         <span class="bs1-info-text">Total</span>
-                        <span class="bs1-info-text">{{ 10 | currency: 'BRL' }}</span>
+                        <span class="bs1-info-text">{{ 0 | currency: 'BRL' }}</span>
                     </div>
                 </div>
                 <div class="bs1-payment-footer">

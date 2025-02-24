@@ -6,6 +6,8 @@ import {Router, RouterLink} from '@angular/router';
 import {AuthService} from "../services/auth.services";
 import {UserModel} from "../models/user.model";
 import {NotificationService} from "../services/notification.service";
+import {CardsService} from "../services/cards.service";
+import {Card} from "../models/card.model";
 
 type RoundStatus = 'new-round' | 'in-progress' | 'finished';
 
@@ -25,20 +27,12 @@ export class FootballComponent implements OnInit {
   roundStatus: RoundStatus = 'new-round';
   user: UserModel;
 
-  items = Array(8).fill({
-    game: {
-      tournament: 'Copa Libertadores',
-      first_team: 'River Plate',
-      second_team: 'Flamengo',
-      date: '12-05-2024',
-      first_team_score: 0,
-      second_team_score: 1
-    }
-  });
+  card: Card;
 
   constructor(
     private router: Router,
     private authService: AuthService,
+    private cardsService: CardsService,
     private notificationService: NotificationService,
   ) {
   }
@@ -64,5 +58,18 @@ export class FootballComponent implements OnInit {
         void this.router.navigate(['/login']);
       }
     })
+
+    this.cardsService.currentCard().subscribe({
+      next: (card) => {
+        this.card = card;
+      },
+      error: (_err) => {
+        this.notificationService.addNotification({
+          message: 'Erro ao buscar cartão, faça login novamente!',
+          type: 'error',
+        });
+        void this.router.navigate(['/login']);
+      }
+    });
   }
 }

@@ -1,159 +1,66 @@
-import { Component, OnInit } from '@angular/core';
-import { HeaderComponent } from "../components/header/header.component";
-import { ButtonComponent } from "../components/button/button.component";
-import { CommonModule } from '@angular/common';
-import { ZeroPadPipe } from '../directives/zero-pad.pipe';
-import { RouterLink } from '@angular/router';
-
-
-export interface Match {
-  draw: boolean;
-  first_team_choose: boolean;
-  first_team: string;
-  second_team_choose: boolean;
-  second_team: string;
-  date: string;
-  first_team_country: number;
-  second_team_country: number;
-}
+import {Component, OnInit} from '@angular/core';
+import {HeaderComponent} from "../components/header/header.component";
+import {ButtonComponent} from "../components/button/button.component";
+import {CommonModule} from '@angular/common';
+import {ZeroPadPipe} from '../directives/zero-pad.pipe';
+import {RouterLink} from '@angular/router';
+import {CardsService} from "../services/cards.service";
+import {NotificationService} from "../services/notification.service";
+import {CardMatch, Hint, Match} from "../models/match.model";
 
 @Component({
-    selector: 'app-bet',
-    standalone: true,
-    templateUrl: './bet.component.html',
-    styleUrl: './bet.component.scss',
-    imports: [HeaderComponent, ButtonComponent, CommonModule, ZeroPadPipe, RouterLink]
+  selector: 'app-bet',
+  standalone: true,
+  templateUrl: './bet.component.html',
+  styleUrl: './bet.component.scss',
+  imports: [HeaderComponent, ButtonComponent, CommonModule, ZeroPadPipe, RouterLink]
 })
 export class BetComponent implements OnInit {
   shoppingCart: any[] = [];
+  games: CardMatch;
+  quantityCart = 0;
 
-  roundGames: Match[] = [
-    {
-      draw: false,
-      first_team_choose: false,
-      first_team: 'River Plate/ARG',
-      second_team_choose: false,
-      second_team: 'Flamengo/BRA',
-      date: '12-05-2024',
-      first_team_country: 0,
-      second_team_country: 1,
-    },
-    {
-      draw: false,
-      first_team_choose: false,
-      first_team: 'River Plate/ARG',
-      second_team_choose: false,
-      second_team: 'Flamengo/BRA',
-      date: '12-05-2024',
-      first_team_country: 0,
-      second_team_country: 1,
-    },
-    {
-      draw: false,
-      first_team_choose: false,
-      first_team: 'River Plate/ARG',
-      second_team_choose: false,
-      second_team: 'Flamengo/BRA',
-      date: '12-05-2024',
-      first_team_country: 0,
-      second_team_country: 1,
-    },
-    {
-      draw: false,
-      first_team_choose: false,
-      first_team: 'River Plate/ARG',
-      second_team_choose: false,
-      second_team: 'Flamengo/BRA',
-      date: '12-05-2024',
-      first_team_country: 0,
-      second_team_country: 1,
-    },
-    {
-      draw: false,
-      first_team_choose: false,
-      first_team: 'River Plate/ARG',
-      second_team_choose: false,
-      second_team: 'Flamengo/BRA',
-      date: '12-05-2024',
-      first_team_country: 0,
-      second_team_country: 1,
-    },
-    {
-      draw: false,
-      first_team_choose: false,
-      first_team: 'River Plate/ARG',
-      second_team_choose: false,
-      second_team: 'Flamengo/BRA',
-      date: '12-05-2024',
-      first_team_country: 0,
-      second_team_country: 1,
-    },
-    {
-      draw: false,
-      first_team_choose: false,
-      first_team: 'River Plate/ARG',
-      second_team_choose: false,
-      second_team: 'Flamengo/BRA',
-      date: '12-05-2024',
-      first_team_country: 0,
-      second_team_country: 1,
-    },
-    {
-      draw: false,
-      first_team_choose: false,
-      first_team: 'River Plate/ARG',
-      second_team_choose: false,
-      second_team: 'Flamengo/BRA',
-      date: '12-05-2024',
-      first_team_country: 0,
-      second_team_country: 1,
-    }
-  ];
-
-  constructor() { }
-
-  ngOnInit(): void {
-    
+  constructor(
+    private cardsService: CardsService,
+    private notificationService: NotificationService,
+  ) {
   }
 
-  selectHint(hint: string, match: Match): void {
-    switch (hint) {
-      case 'first-team':
-        match.first_team_choose = !match.first_team_choose;
-        match.second_team_choose = false;
-        match.draw = false;
-        break;
+  ngOnInit(): void {
+    this.cardsService.currentCard().subscribe({
+      next: (card) => {
+        const matches = card.games.map((game) => {
+          return {match: game, hunch: null} as Match;
+        });
 
-      case 'second-team':
-        match.first_team_choose = false;
-        match.second_team_choose = !match.second_team_choose;
-        match.draw = false;
-        break;
+        this.games = {
+          matches: matches,
+          end_date: card.end_date,
+          end_date_bet: card.end_date_bet,
+          value: card.value,
+        }
+      },
+      error: (_err) => {
+        this.notificationService.addNotification({
+          message: 'Erro ao buscar cartão',
+          type: 'error',
+        });
+      }
+    });
+  }
 
-      case 'draw':
-        match.first_team_choose = false;
-        match.second_team_choose = false;
-        match.draw = !match.draw;
-        break;
-    
-      default:
-        match.first_team_choose = false;
-        match.second_team_choose = false;
-        match.draw = false;
-        break;
-    }
+  selectHint(hint: Hint, match: Match): void {
+    match.hunch = hint;
   }
 
   clearHints(): void {
-    this.roundGames.forEach((match) => {
-      match.first_team_choose = false;
-      match.second_team_choose = false;
-      match.draw = false;
+    this.games.matches.forEach((match) => {
+      match.hunch = null;
     });
   }
 
   addShoppingCart(): void {
-    this.shoppingCart.push(this.roundGames);
+    this.shoppingCart.push(this.games);
     this.clearHints();
   }
 }

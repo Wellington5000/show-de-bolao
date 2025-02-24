@@ -1,24 +1,29 @@
 <header>
-    <div class="h-content">
-        <a href=""><img class="h-logo" src="/assets/images/logo-show-de-bolao.svg" alt="Logo show de bolão"
-                        height="74" width="66"></a>
-        <p class="h-time">Encerramento da 1° rodada: <strong>08:24</strong></p>
+  <div class="h-content">
+    <a href=""><img class="h-logo" src="/assets/images/logo-show-de-bolao.svg" alt="Logo show de bolão"
+                    height="74" width="66"></a>
+    <p class="h-time">
+      Encerramento da rodada: <strong>{{ timeLeft$ | async }}</strong>
+    </p>
+
+  </div>
+  <div class="h-actions">
+    <div class="h-info">
+      <div class="h-item">
+        <img src="/assets/icons/header/small-winner.svg" alt="Taça pequena" height="24" width="24">
+        <p class="h-item-text">0</p>
+      </div>
+      <div class="h-item">
+        <img src="/assets/icons/header/small-money.svg" alt="Moeda pequena" height="32" width="32">
+        <p class="h-item-text">0</p>
+      </div>
+      <div class="h-item">
+        <img src="/assets/icons/header/small-ticket.svg" alt="Ticket pequeno" height="32" width="32">
+        <p class="h-item-text">0</p>
+      </div>
     </div>
-    <div class="h-actions">
-        <div class="h-info">
-            <div class="h-item">
-                <img src="/assets/icons/header/small-winner.svg" alt="Taça pequena" height="24" width="24">
-                <p class="h-item-text">0</p>
-            </div>
-            <div class="h-item">
-                <img src="/assets/icons/header/small-money.svg" alt="Moeda pequena" height="32" width="32">
-                <p class="h-item-text">0</p>
-            </div>
-            <div class="h-item">
-                <img src="/assets/icons/header/small-ticket.svg" alt="Ticket pequeno" height="32" width="32">
-                <p class="h-item-text">0</p>
-            </div>
-        </div>
-        <a routerLink="#"><app-custom-button [text]="'Participar do bolão'"></app-custom-button></a>
-    </div>
+    <a routerLink="#">
+      <app-custom-button [text]="'Participar do bolão'"></app-custom-button>
+    </a>
+  </div>
 </header>
