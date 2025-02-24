@@ -1,46 +1,49 @@
 * {
-    margin: 0;
-    padding: 0;
-    font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
 }
 
 :root {
-    --primary-color: #2ECC71;
+  --primary-color: #2ECC71;
 }
 
-body {
-    background-color: #052535;
+html, body {
+  background-color: #052535;
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
 }
-
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 button {
-    border: none;
-    outline: none;
-    font-size: 1rem;
-    border-radius: 0.25rem;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  border-radius: 0.25rem;
 
-    &:hover {
-        cursor: pointer;
-    }
+  &:hover {
+    cursor: pointer;
+  }
 
-    &:disabled {
-        cursor: not-allowed;
-        background-color: #8B8A8D;
-    }
+  &:disabled {
+    cursor: not-allowed;
+    background-color: #8B8A8D;
+  }
 }
 
 .primary {
-    font-size: 1rem;
-    font-weight: 700;
-    color: #ffffff;
-    padding: 0.875rem 7.5rem;
-    background-color: var(--primary-color);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  padding: 0.875rem 7.5rem;
+  background-color: var(--primary-color);
 }
 
 .tertiary {
-    color: #ffffff;
-    background-color: transparent;
+  color: #ffffff;
+  background-color: transparent;
 }
