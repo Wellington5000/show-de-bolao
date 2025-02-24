@@ -7,6 +7,8 @@ import {RouterLink} from '@angular/router';
 import {CardsService} from "../services/cards.service";
 import {NotificationService} from "../services/notification.service";
 import {CardMatch, Hint, Match} from "../models/match.model";
+import {BettingService} from "../services/betting.service";
+import {CartService} from "../services/cart.service";
 
 @Component({
   selector: 'app-bet',
@@ -16,12 +18,15 @@ import {CardMatch, Hint, Match} from "../models/match.model";
   imports: [HeaderComponent, ButtonComponent, CommonModule, ZeroPadPipe, RouterLink]
 })
 export class BetComponent implements OnInit {
-  shoppingCart: any[] = [];
+  shoppingCart: CardMatch[] = [];
   games: CardMatch;
   quantityCart = 0;
+  total = 0;
 
   constructor(
     private cardsService: CardsService,
+    private cartService: CartService,
+    private bettingService: BettingService,
     private notificationService: NotificationService,
   ) {
   }
@@ -47,6 +52,20 @@ export class BetComponent implements OnInit {
         });
       }
     });
+
+    this.cartService.listCarts().subscribe({
+      next: (carts) => {
+        this.quantityCart = carts.count;
+        this.total = carts.results.reduce((acc: number, cart: { card_value: number; }) => Number(acc) + Number(cart.card_value), 0);
+      },
+      error: () => {
+        this.notificationService.addNotification({
+          message: 'Erro ao buscar carrinhos',
+          type: 'error',
+        });
+      }
+    });
+
   }
 
   selectHint(hint: Hint, match: Match): void {
@@ -60,7 +79,38 @@ export class BetComponent implements OnInit {
   }
 
   addShoppingCart(): void {
+    if (this.games.matches.some((match) => !match.hunch)) {
+      this.notificationService.addNotification({
+        message: 'Selecione todos os palpites',
+        type: 'error',
+      });
+      return;
+    }
+    const mappedMatches = this.games.matches.map((match) => {
+      return {
+        match: match.match.id,
+        hunch: match.hunch,
+      }
+    });
     this.shoppingCart.push(this.games);
-    this.clearHints();
+    this.bettingService.criarBetting({
+      matches: mappedMatches
+    }).subscribe({
+      next: () => {
+        this.notificationService.addNotification({
+          message: 'Aposta adicionada ao carrinho',
+          type: 'success',
+        })
+        this.clearHints();
+        this.quantityCart = this.quantityCart + 1;
+        this.total = this.total + Number(this.games.value);
+      },
+      error: () => {
+        this.notificationService.addNotification({
+          message: 'Erro ao adicionar aposta ao carrinho',
+          type: 'error',
+        });
+      }
+    });
   }
 }

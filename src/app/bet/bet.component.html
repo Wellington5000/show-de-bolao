@@ -4,7 +4,7 @@
     <div class="bs1-container">
         <div class="bs1-table-content">
             <h1 class="bs1-title">Preencha sua aposta</h1>
-        <span class="bs1-bet-value">Valor da aposta R$ 10.</span>
+        <span class="bs1-bet-value">Valor da aposta {{ games.value | currency: 'BRL' }}.</span>
 
         <div class="bs1-table-container">
             <app-button class="bs1-table-clear-bet" [text]="'Limpar volante'" [variant]="'tertiary'" (clickButton)="clearHints()"></app-button>
@@ -48,7 +48,7 @@
                     </tbody>
                 </table>
             </div>
-            <button class="bs1-add-cart">
+            <button class="bs1-add-cart" (click)="addShoppingCart()">
                 <span class="material-symbols-rounded">shopping_cart</span>
                 Adicionar ao carrinho
             </button>
@@ -70,7 +70,7 @@
                     </div>
                     <div class="bs1-payment-info">
                         <span class="bs1-info-text">Total</span>
-                        <span class="bs1-info-text">{{ 0 | currency: 'BRL' }}</span>
+                        <span class="bs1-info-text">{{ total | currency: 'BRL' }}</span>
                     </div>
                 </div>
                 <div class="bs1-payment-footer">
