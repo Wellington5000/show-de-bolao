@@ -46,25 +46,27 @@
         <div class="fs3-table-item" *ngFor="let item of card.games; let i = index">
           <p class="fs3-item-text">Jogo {{ i + 1 }}</p>
           <div class="fs3-item-info">
-            <span class="fs3-info-date">{{ item.match_date + 'T' + item.match_time | date:'dd/MM/yyyy HH:mm' }}</span>
+            <span class="fs3-info-date">{{ item.status === 'F' ? 'Concluído' : item.match_date + 'T' + item.match_time | date:'dd/MM/yyyy HH:mm' }}</span>
             <span class="fs3-info-tournament">{{ item.championship_name }} - {{item.championship_year}}</span>
             <div class="fs3-info-teams">
               <div class="fs3-team">
                 <img class="fs3-team-shield" src="{{item.team_home_logo}}" alt="Escudo do time 1"
                      height="40" width="40">
                 <span class="fs3-team-name"
-                      [class.fs3-win]="((item.score_home ?? 0) >= (item.score_away ?? 0)) && ['in-progress', 'finished'].includes(roundStatus)">{{ item.team_home_name}}</span>
+                      [class.fs3-win]="((item.score_home ?? 0) > (item.score_away ?? 0)) && item.status === 'F'"
+                      [class.fs3-lose]="((item.score_home ?? 0) < (item.score_away ?? 0)) && item.status === 'F'"
+                >{{ item.team_home_name}}</span>
               </div>
               <div class="fs3-team-scoreboard">
-                <span class="fs3-team-item"
-                      *ngIf="['in-progress', 'finished'].includes(roundStatus)">{{ item.score_home }}</span>
+                <span class="fs3-team-item" *ngIf="item.status === 'F'">{{ item.score_home }}</span>
                 <span class="fs3-team-item">x</span>
-                <span class="fs3-team-item"
-                      *ngIf="['in-progress', 'finished'].includes(roundStatus)">{{ item.score_away }}</span>
+                <span class="fs3-team-item" *ngIf="item.status === 'F'">{{ item.score_away }}</span>
               </div>
               <div class="fs3-team">
                 <span class="fs3-team-name"
-                      [class.fs3-win]="((item.score_home ?? 0) <= (item.score_away ?? 0)) && ['in-progress', 'finished'].includes(roundStatus)">{{ item.team_away_name }}</span>
+                      [class.fs3-win]="((item.score_home ?? 0) < (item.score_away ?? 0))  && item.status === 'F'"
+                      [class.fs3-lose]="((item.score_home ?? 0) > (item.score_away ?? 0)) && item.status === 'F'"
+                >{{ item.team_away_name }}</span>
                 <img class="fs3-team-shield" src="{{item.team_away_logo}}" alt="Escudo do time 1"
                      height="40" width="40">
               </div>
